@@ -5,6 +5,21 @@ class Location(models.Model):
     '''
     name = models.CharField(max_length=150)
 
+    def save_location(self):
+        '''Method to save the location to the database.
+        '''
+        self.save()
+
+    def delete_location(self):
+        '''Method to delete the location from the database.
+        '''
+        self.delete()
+
+    def update_location(self):
+        '''Method to update the location in the database.
+        '''
+        self.update()
+
     def __str__(self):
         return self.name
 
@@ -12,6 +27,21 @@ class Category(models.Model):
     '''Class to define the category of an image on the gallery.
     '''
     name = models.CharField(max_length=150)
+
+    def save_category(self):
+        '''Method to save the category to the database.
+        '''
+        self.save()
+
+    def delete_category(self):
+        '''Method to delete the category from the database.
+        '''
+        self.delete()
+
+    def update_category(self):
+        '''Method to update the category in the database.
+        '''
+        self.update()
 
     def __str__(self):
         return self.name
@@ -25,4 +55,38 @@ class Image(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     post_date = models.DateTimeField(auto_now_add=True)
+
+    def save_image(self):
+        '''Method to save the image to the database.
+        '''
+        self.save()
+
+    def delete_image(self):
+        '''Method to delete the image from the database.
+        '''
+        self.delete()
+
+    def update_image(self):
+        '''Method to update the image in the database.
+        '''
+        self.update()
+
+    @classmethod
+    def get_image_by_id(cls, id):
+        '''Allows us to get an image using its ID.
+        '''
+        return cls.objects.filter(id=id)
+
+    @classmethod
+    def search_image(cls, category):
+        '''Allows us to search for an image using its category.
+        '''
+        return cls.objects.filter(category=category)
+
+    classmethod
+    def filter_by_location(cls, location):
+        '''Allows us to filter images by the location.
+        '''
+        return cls.objects.filter(location=location)
+
 
