@@ -63,7 +63,7 @@ a {
             transition: all 0.3s linear;
 
             &:hover{
-                border-bottom: 1px solid #84b4b1;
+                box-shadow: 0px 8px 32px -7px rgba(0, 0, 0, 0.63);
                 opacity: 1;
                 transform: scale(1.05);
                 img {
@@ -125,7 +125,7 @@ a {
                     height: 100%;
                     width: 100%;
                     object-fit: cover;
-                    filter: grayscale(85%);
+                    filter: grayscale(90%);
                     -webkit-transition: all 0.3s linear;
                     -moz-transition: all 0.3s linear;
                     transition: all 0.3s linear;
@@ -149,7 +149,7 @@ header {
     // left: 0;
     // top: 0;
     width: 100%;
-    background-color: #84b4b1;
+    background-color: #202020;
     color: #fff;
     text-align: center;
     -webkit-transition: all 0.3s linear;
@@ -171,6 +171,7 @@ header {
             letter-spacing: 7px;
             font-size: 25px;
             line-height: 1;
+            color: #FFDF6C;
         }
     }
 
@@ -180,9 +181,7 @@ header {
 }
 
 .hide-header {
-    display: block;
-    position: absolute;
-    top: -500px !important;
+    display: none;
     -webkit-transition: all 0.3s linear;
     -moz-transition: all 0.3s linear;
     transition: all 0.3s linear;
@@ -191,12 +190,14 @@ header {
 .port {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     top: 0;
     left: 0;
-    padding-top: 100px;
+    overflow: hidden;
+    padding: 150px !important;
     background: #ffffff;
     background-color: #fafafa;
+    // background-color: red;
     z-index: 103;
     visibility: hidden;
     -webkit-transform: translateY(-100%);
@@ -207,15 +208,29 @@ header {
     transition: all 0.5s ease-in-out;
 
     img {
-        width: 50%;
+        width: 70%;
+        height: 80vh;
+        object-fit: cover;
+        // border: 15px solid rgb(255, 255, 255);
+        box-shadow: 0 10px 50px -35px grey;
+        margin-bottom: 20px;
     }
 
     .description {
         float: left;
-        width: 50%;
+        width: 30%;
         max-height: 100%;
         padding: 0 40px 40px;
         overflow: auto;
+        color: #202020;
+        .details{
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            font-weight: bolder;
+            color: #FFDF6C;
+            background-color: #202020;
+            padding: 5px;
+        }
     }
 
     h1 {
