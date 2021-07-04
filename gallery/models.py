@@ -79,18 +79,18 @@ class Image(models.Model):
     def get_image_by_id(cls, id):
         '''Allows us to get an image using its ID.
         '''
-        return cls.objects.filter(id=id)
+        return cls.objects.filter(id=id).all()
 
     @classmethod
     def search_image(cls, category):
         '''Allows us to search for an image using its category.
         '''
-        return cls.objects.filter(category=category)
+        return cls.objects.filter(category=category).all()
 
-    classmethod
+    @classmethod
     def filter_by_location(cls, location):
         '''Allows us to filter images by the location.
         '''
-        return cls.objects.filter(location=location)
+        return cls.objects.filter(location=location).all()
 
 
