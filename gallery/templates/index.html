@@ -30,7 +30,7 @@
                 <a href="#" class="close"></a>
                 {% for image in images %}
                 <li>
-                    <a href="#pic">
+                    <a href="#pic" data-url='{{ image.image.url }}'>
                         <img src="{{ image.image.url }}"
                             alt="">
                     </a>
@@ -54,7 +54,7 @@
                     purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
             </div>
 
-            <img src="https://source.unsplash.com/random/sig=1" alt="">
+            <img alt="">
         </div>
     </div>
 

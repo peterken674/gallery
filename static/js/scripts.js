@@ -1,7 +1,9 @@
 $(document).on('ready', function(){
     $('.gallery ul li a').click(function () {
         var itemID = $(this).attr('href');
+        var url = $(this).attr('data-url');
         $('.gallery ul').addClass('item_open');
+        $('.port img').attr('src', url)
         $(itemID).addClass('item_open');
         $('header').addClass('hide-header')
         return false;
