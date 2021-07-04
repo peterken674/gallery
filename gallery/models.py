@@ -4,7 +4,6 @@ class Location(models.Model):
     '''Class to define the location of a photo in the gallery.
     '''
     name = models.CharField(max_length=200)
-    country = models.CharField(max_length=200)
 
     def save_location(self):
         '''Method to save the location to the database.
@@ -16,13 +15,11 @@ class Location(models.Model):
         '''
         self.delete()
 
-    def update_location(self, name, country):
+    @classmethod
+    def update_location(cls, id, name):
         '''Method to update the location in the database.
         '''
-        location = Location.objects.get(name=self.name)
-        location.name = name
-        location.country = country
-        location.save()
+        return cls.objects.filter(id=id).update(name=name)
 
     def __str__(self):
         return self.name
@@ -42,12 +39,11 @@ class Category(models.Model):
         '''
         self.delete()
 
-    def update_category(self, name):
+    @classmethod
+    def update_category(cls, id, name):
         '''Method to update the category in the database.
         '''
-        category = Category.objects.get(name=self.name)
-        category.name = name
-        category.save()
+        return cls.objects.filter(id=id).update(name=name)
 
     def __str__(self):
         return self.name
@@ -55,11 +51,11 @@ class Category(models.Model):
 class Image(models.Model):
     '''Class to define attributes of an image in the gallery, and it's methods.
     '''
-    image = models.ImageField(upload_to='images/')
-    name = models.CharField(max_length=150)
-    description = models.CharField(max_length=300)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images/', null=True)
+    name = models.CharField(max_length=150, null=True)
+    description = models.CharField(max_length=300, null=True)
+    location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     post_date = models.DateTimeField(auto_now_add=True)
 
     def save_image(self):
@@ -72,12 +68,12 @@ class Image(models.Model):
         '''
         self.delete()
 
-    def update_image(self, image, name, description, location, category):
+    @classmethod
+    def update_image(cls, id, image):
         '''Method to update the image in the database.
         '''
-        image = Image.objects.get(name=self.name)
-        image.name = name
-        image.save()
+        return cls.objects.filter(id=id).update(image=image)
+        
 
     @classmethod
     def get_image_by_id(cls, id):
