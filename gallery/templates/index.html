@@ -28,53 +28,14 @@
         <div class="row">
             <ul>
                 <a href="#" class="close"></a>
+                {% for image in images %}
                 <li>
                     <a href="#pic">
-                        <img src="https://source.unsplash.com/random/200x200?sig=1"
+                        <img src="{{ image.image.url }}"
                             alt="">
                     </a>
                 </li>
-
-                <li>
-                    <a href="#pic">
-                        <img src="https://source.unsplash.com/random/200x200?sig=2"
-                            alt="">
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#pic">
-                        <img src="https://source.unsplash.com/random/200x200?sig=3"
-                            alt="">
-                    </a>
-                </li>
-                <li>
-                    <a class="image" href="#pic">
-                        <img src="https://source.unsplash.com/random/200x200?sig=4"
-                            alt="">
-                    </a>
-                </li>
-                <li>
-                    <a class="image" href="#pic">
-                        <img src="https://source.unsplash.com/random/200x200?sig=5"
-                            alt="">
-                    </a>
-                </li>
-                <li>
-                    <a class="image" href="#pic">
-                        <img src="https://source.unsplash.com/random/200x200?sig=6" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a class="image" href="#pic">
-                        <img src="https://source.unsplash.com/random/200x200?sig=7" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a class="image" href="#pic">
-                        <img src="https://source.unsplash.com/random/200x200?sig=8" alt="">
-                    </a>
-                </li>
+                {%endfor%}
             </ul>
         </div> 
 
