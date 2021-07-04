@@ -3,7 +3,8 @@ from django.db import models
 class Location(models.Model):
     '''Class to define the location of a photo in the gallery.
     '''
-    name = models.CharField(max_length=150)
+    name = models.CharField(max_length=200)
+    country = models.CharField(max_length=200)
 
     def save_location(self):
         '''Method to save the location to the database.
@@ -15,10 +16,13 @@ class Location(models.Model):
         '''
         self.delete()
 
-    def update_location(self):
+    def update_location(self, name, country):
         '''Method to update the location in the database.
         '''
-        self.update()
+        location = Location.objects.get(name=self.name)
+        location.name = name
+        location.country = country
+        location.save()
 
     def __str__(self):
         return self.name
@@ -38,10 +42,12 @@ class Category(models.Model):
         '''
         self.delete()
 
-    def update_category(self):
+    def update_category(self, name):
         '''Method to update the category in the database.
         '''
-        self.update()
+        category = Category.objects.get(name=self.name)
+        category.name = name
+        category.save()
 
     def __str__(self):
         return self.name
@@ -66,10 +72,12 @@ class Image(models.Model):
         '''
         self.delete()
 
-    def update_image(self):
+    def update_image(self, image, name, description, location, category):
         '''Method to update the image in the database.
         '''
-        self.update()
+        image = Image.objects.get(name=self.name)
+        image.name = name
+        image.save()
 
     @classmethod
     def get_image_by_id(cls, id):
