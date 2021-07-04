@@ -30,7 +30,7 @@ class Location(models.Model):
 class Category(models.Model):
     '''Class to define the category of an image on the gallery.
     '''
-    name = models.CharField(max_length=150)
+    name = models.CharField(max_length=200)
 
     def save_category(self):
         '''Method to save the category to the database.
