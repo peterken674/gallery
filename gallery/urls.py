@@ -4,6 +4,6 @@ from . import views
 
 '''Defining the route urls.
 '''
-urlpatterns = {
+urlpatterns = [
     path('', views.index, name='index'),
-}
+]

@@ -55,7 +55,7 @@ class Image(models.Model):
     name = models.CharField(max_length=150, null=True)
     description = models.CharField(max_length=300, null=True)
     location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    category = models.ManyToManyField(Category)
     post_date = models.DateTimeField(auto_now_add=True)
 
     def save_image(self):
