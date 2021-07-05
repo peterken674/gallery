@@ -10,8 +10,11 @@ $(document).on('ready', function(){
         $('#pic p.desc').text(desc)
         $('.gallery ul').addClass('item_open');
         $('.port img').attr('src', url)
+        $('.port img').attr('alt', name)
         $(itemID).addClass('item_open');
         $('header').addClass('hide-header')
+
+        $('.copy i').on('click', copyFunction(url))
         return false;
     });
     $('.close').click(function () {
@@ -25,4 +28,14 @@ $(document).on('ready', function(){
             scrollTop: parseInt($("#top").offset().top)
         }, 300);
     });
+
+    copyFunction = (url) => {
+        const elem = document.createElement('input');
+        elem.value = 'https://pkgallery.herokuapp.com'+
+        url;
+        document.body.appendChild(elem);
+        elem.select();
+        document.execCommand('copy');
+        document.body.removeChild(elem);
+    }
 });

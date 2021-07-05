@@ -332,8 +332,19 @@ header p {
   border-bottom: 4px solid #FFDF6C;
 }
 
-.active {
-  padding-bottom: 3px;
-  border-bottom: 4px solid #FFDF6C;
+.copy i {
+  background-color: #202020;
+  color: #FFDF6C;
+  padding: 5px;
+  font-size: 1.2em;
+}
+
+.copy i:hover {
+  cursor: copy;
+}
+
+.copy i:active {
+  background-color: #FFDF6C;
+  color: #202020;
 }
 /*# sourceMappingURL=style.css.map */

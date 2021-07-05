@@ -52,6 +52,7 @@ a {
 }
 
 .gallery {
+
     ul {
         li {
             float: left;
@@ -328,5 +329,21 @@ header {
            padding-bottom: 3px;
            border-bottom: 4px solid #FFDF6C;
        }
+    }
+}
+
+.copy{
+    i{
+        background-color: #202020;
+        color: #FFDF6C;
+        padding: 5px;
+        font-size: 1.2em;
+        &:hover{
+            cursor: copy;
+        }
+        &:active{
+            background-color: #FFDF6C;
+            color: #202020;
+        }
     }
 }

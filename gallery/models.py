@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 class Location(models.Model):
     '''Class to define the location of a photo in the gallery.
@@ -51,7 +52,8 @@ class Category(models.Model):
 class Image(models.Model):
     '''Class to define attributes of an image in the gallery, and it's methods.
     '''
-    image = models.ImageField(upload_to='images/', null=True)
+    # image = models.ImageField(upload_to='images/', null=True)
+    image = CloudinaryField('image', null=True)
     name = models.CharField(max_length=150, null=True)
     description = models.TextField(null=True)
     location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
@@ -82,9 +84,10 @@ class Image(models.Model):
         return cls.objects.filter(id=id).all()
 
     @classmethod
-    def search_image(cls, category):
+    def search_image(cls, search_term):
         '''Allows us to search for an image using its category.
         '''
+        category = Category.objects.get(name__icontains=search_term)
         return cls.objects.filter(category=category).all()
 
     @classmethod
