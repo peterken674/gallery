@@ -331,4 +331,9 @@ header p {
   padding-bottom: 3px;
   border-bottom: 4px solid #FFDF6C;
 }
+
+.active {
+  padding-bottom: 3px;
+  border-bottom: 4px solid #FFDF6C;
+}
 /*# sourceMappingURL=style.css.map */
