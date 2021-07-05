@@ -31,8 +31,7 @@ $(document).on('ready', function(){
 
     copyFunction = (url) => {
         const elem = document.createElement('input');
-        elem.value = 'https://pkgallery.herokuapp.com'+
-        url;
+        elem.value = url;
         document.body.appendChild(elem);
         elem.select();
         document.execCommand('copy');
