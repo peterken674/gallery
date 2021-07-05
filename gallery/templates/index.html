@@ -17,16 +17,38 @@
 <body>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
 
     <header id="top">
         <h1>Peter Kennedy <br> <span> Photo Gallery </span></h1>
     </header>
 
-    <div></div>
     <section class="gallery">
+        
         <div class="row">
-            <ul>
+            <div class="actions">
+                <div class="search">
+                    <form action="" class="search-form" role="search">
+                        <div class="input">
+                            <input type="text" name="search" placeholder="Search by category..." id="search">
+                        </div>
+                        <div class="submit">
+                            <button type="submit">
+                                <i class='bx bx-search-alt-2'></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="nav">
+                    <a href="#">Kenya</a>
+                    <a href="#">Togo</a>
+                    <a href="#">Sierra Leone</a>
+                    <a href="#">Egypt</a>
+                </div>
+            </div>
+            <div class="gallery-part">
+                <ul>
                 <a href="#" class="close"></a>
                 {% for image in images %}
                 <li>
@@ -38,6 +60,7 @@
                 </li>
                 {%endfor%}
             </ul>
+            </div>
         </div> 
 
         </div> 
