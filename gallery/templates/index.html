@@ -29,9 +29,9 @@
         <div class="row">
             <div class="actions">
                 <div class="search">
-                    <form action="{% url 'search_results' %}" class="search-form" role="search">
+                    <form action="{% url 'search_results' %}" class="search-form" role="search" autocomplete="off">
                         <div class="input">
-                            <input type="text" name="search" placeholder="Search by category..." id="search">
+                            <input type="text" name="search" placeholder="Cultural, Portrait, Fashion" id="search">
                         </div>
                         <div class="submit">
                             <button type="submit">
@@ -39,6 +39,13 @@
                             </button>
                         </div>
                     </form>
+
+                    <!-- <form autocomplete="off" action="/action_page.php">
+                        <div class="autocomplete" style="width:300px;">
+                            <input id="myInput" type="text" name="myCountry" placeholder="Country">
+                        </div>
+                        <input type="submit">
+                    </form> -->
                 </div>
                 <div class="nav">
                     <a href="{% url 'index'%}">All</a>
@@ -52,7 +59,7 @@
                 
                 <ul>
                     {% if message %}
-                    <h2>Results for {{ message }} Category</h2>
+                    <h2 style="color: #3F3F3F;">Results for {{ message }} Category</h2>
                     {% endif %}
 
                 <a href="#" class="close"></a>
