@@ -30,7 +30,8 @@
                 <a href="#" class="close"></a>
                 {% for image in images %}
                 <li>
-                    <a href="#pic" data-url='{{ image.image.url }}'>
+                    <a href="#pic" data-url='{{ image.image.url }}' data-name='{{ image.name}}'
+                        data-details='{{ image.location.name }} | {{ image.post_date | date }}' data-description='{{ image.description }}'>
                         <img src="{{ image.image.url }}"
                             alt="">
                     </a>
@@ -50,7 +51,7 @@
             <div class="description">
                 <h1>Image 01</h1>
                 <p class="details"><strong> Nature | Kenya | 29th June </strong></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac
+                <p class="desc">#Dummy Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac
                     purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
             </div>
 

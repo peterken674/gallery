@@ -59,7 +59,7 @@ class ImageTest(TestCase):
         self.travel = Category(name='travel')
         self.travel.save_category()
 
-        self.cruising_image=Image(name='Cruise',description='Crusising along the coast of Mombasa',location=self.mombasa,category=self.travel)
+        self.cruising_image=Image(name='Cruise',description='Cruising along the coast of Mombasa',location=self.mombasa,category=self.travel)
 
     def test_instance(self):
         self.assertTrue(isinstance(self.cruising_image, Image))
