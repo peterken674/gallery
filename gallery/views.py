@@ -1,6 +1,8 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from .models import Category, Image, Location
+from django.http import Http404
+
 
 images = []
 def index(request):
@@ -30,9 +32,12 @@ def search_results(request):
     if 'search' in request.GET and request.GET['search']:
         global images
         search_term = request.GET.get('search')
-        images = Image.search_image(search_term)
         message = f"{search_term}"
-
+        try:
+            images = Image.search_image(search_term)
+            pass
+        except Image.DoesNotExist:
+            raise Http404()
         return render(request, 'index.html', {'images':images, 'message':message,})
 
     else:
