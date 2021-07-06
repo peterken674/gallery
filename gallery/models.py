@@ -87,7 +87,12 @@ class Image(models.Model):
     def search_image(cls, search_term):
         '''Allows us to search for an image using its category.
         '''
-        category = Category.objects.get(name__icontains=search_term)
+        try:
+            category = Category.objects.get(name__icontains=search_term)
+        except Category.DoesNotExist:
+            images = []
+            return images
+        
         return cls.objects.filter(category=category).all()
 
     @classmethod
