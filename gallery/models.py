@@ -100,5 +100,8 @@ class Image(models.Model):
         '''Allows us to filter images by the location.
         '''
         return cls.objects.filter(location=location).all()
+    
+    def __str__(self):
+        return self.name
 
 
