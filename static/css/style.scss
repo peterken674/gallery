@@ -52,7 +52,9 @@ a {
 }
 
 .gallery {
-
+    h2{
+        margin: 1em 0.8771929825%;
+    }
     ul {
         li {
             float: left;
@@ -155,13 +157,16 @@ form {
     display: flex;
     align-items: flex-start;
     margin-left: 0;
-    width: 200%;
-    .input input{
-        width: max-content;
-        padding: 6px 5px;
-        border-radius: 0;
-        border: none;
-        outline: 1px solid #FFDF6C;
+    width: 400px;
+    .input {
+        width: 100%;
+        input {
+            width: 100%;
+            padding: 6px 5px;
+            border-radius: 0;
+            border: none;
+            outline: 1px solid #FFDF6C;
+        }
     }
     .submit button{
         padding: 6px;
@@ -338,7 +343,9 @@ header {
         color: #FFDF6C;
         padding: 5px;
         font-size: 1.2em;
+        transition: all 300ms;
         &:hover{
+            background-color: transparent;
             cursor: copy;
         }
         &:active{
@@ -346,4 +353,8 @@ header {
             color: #202020;
         }
     }
+    .alert{
+        font-size: 0.8em;
+    }
+
 }

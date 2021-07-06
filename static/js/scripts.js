@@ -14,7 +14,13 @@ $(document).on('ready', function(){
         $(itemID).addClass('item_open');
         $('header').addClass('hide-header')
 
-        $('.copy i').on('click', copyFunction(url))
+        $('.copy .copy-click').on('click', function(){
+            copyFunction(url)
+            $(this).next().text('Image link copied!');
+            setTimeout(function () {
+                $('.copy-click').next().text('');
+            }, 3000);
+        });
         return false;
     });
     $('.close').click(function () {
@@ -36,6 +42,11 @@ $(document).on('ready', function(){
         elem.select();
         document.execCommand('copy');
         document.body.removeChild(elem);
+
+
+        // setTimeout(function () {
+        //     $(elem).next().text('');
+        // }, 2000);
     }
 
     function autocomplete(inp, arr) {
