@@ -39,8 +39,6 @@ $(document).on('ready', function(){
     }
 
     function autocomplete(inp, arr) {
-        /*the autocomplete function takes two arguments,
-        the text field element and an array of possible autocompleted values:*/
         var currentFocus;
         /*execute a function when someone writes in the text field:*/
         inp.addEventListener("input", function (e) {
@@ -141,9 +139,9 @@ $(document).on('ready', function(){
     }
 
 
-    var categories = ['Fashion', 'Portrait', 'Cultural']
+    var categories = ['Fashion', 'Portrait', 'Cultural', 'Nature']
 
-    /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+    /*initiate the autocomplete function on the "search" element, and pass along the countries array as possible autocomplete values:*/
     autocomplete(document.getElementById("search"), categories);
     
 });

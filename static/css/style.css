@@ -154,11 +154,13 @@ form {
       -ms-flex-align: start;
           align-items: flex-start;
   margin-left: 0;
-  width: 100%;
+  width: 200%;
 }
 
 form .input input {
-  width: 100%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   padding: 6px 5px;
   border-radius: 0;
   border: none;

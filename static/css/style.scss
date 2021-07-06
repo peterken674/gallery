@@ -155,9 +155,9 @@ form {
     display: flex;
     align-items: flex-start;
     margin-left: 0;
-    width: 100%;
+    width: 200%;
     .input input{
-        width: 100%;
+        width: max-content;
         padding: 6px 5px;
         border-radius: 0;
         border: none;
