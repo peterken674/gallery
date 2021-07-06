@@ -35,7 +35,8 @@ def search_results(request):
         message = f"{search_term}"
         try:
             images = Image.search_image(search_term)
-            pass
+            if not images:
+                message = f'No results found for category "{search_term}". Please try  the search again from among the provided choices.'
         except Image.DoesNotExist:
             raise Http404()
         return render(request, 'index.html', {'images':images, 'message':message,})
