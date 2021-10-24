@@ -13,6 +13,7 @@ urlpatterns = [
     path('sierra/', views.location_sierra, name='location_sierra'),
     path('egypt/', views.location_egypt, name='location_egypt'),
     path('search/', views.search_results, name='search_results'),
+    path('api/images/', views.ImagesList.as_view())
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

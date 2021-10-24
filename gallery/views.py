@@ -1,7 +1,12 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
+from rest_framework import serializers
 from .models import Category, Image, Location
 from django.http import Http404
+
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ImageSerializer
 
 
 images = []
@@ -44,3 +49,11 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'index.html', {'images':images, "message":message})
+
+
+# API
+class ImagesList(APIView):
+    def get(self, request, format=None):
+        all_images = Image.objects.all()
+        serializers = ImageSerializer(all_images, many=True)
+        return Response(serializers.data)
